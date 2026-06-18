@@ -1,6 +1,6 @@
 # Biomedical Classification with Machine Learning
 
-A supervised machine learning pipeline for binary classification of breast tumor biopsies. Three classifiers: Logistic Regression, Random Forest, and SVM — are trained, cross-validated, and evaluated on the Wisconsin Breast Cancer dataset built into scikit-learn.
+A supervised machine learning pipeline for binary classification of breast tumor biopsies. Three classifiers: Logistic Regression, Random Forest, and SVM are trained, cross-validated, and evaluated on the Wisconsin Breast Cancer dataset built into scikit-learn.
 
 > **Key Result:** Best model achieved approximately **98% held-out test accuracy** on the Wisconsin Breast Cancer dataset.
 
