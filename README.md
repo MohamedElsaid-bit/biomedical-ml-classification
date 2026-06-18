@@ -200,19 +200,6 @@ Logistic Regression and SVM tied for best test performance. Random Forest was sl
 
 ---
 
-## Interview Talking Points
-
-1. **Why no scaling in preprocessing?** Scaling must happen after the train/test split. Fitting `StandardScaler` on the full dataset would leak test-set statistics into training. I use sklearn `Pipeline` so the scaler is fit only on training folds during CV and on the full training set for the final model.
-
-2. **Why stratified splits?** A random split could give the test set a different class ratio than training — especially harmful on smaller datasets.
-
-3. **Why cross-validate on training data only?** The test set is held out entirely until final evaluation to prevent leakage into model selection.
-
-4. **Why three different models?** Logistic Regression is an interpretable baseline. Random Forest handles non-linear interactions and gives feature importances. SVM is strong on high-dimensional data. Comparing them shows you understand trade-offs, not just one algorithm.
-
-5. **What do ROC curves tell you?** AUC summarizes performance across all decision thresholds. Near 1.0 means the model consistently ranks positive samples above negatives — useful when class imbalance makes accuracy misleading.
-
----
 
 ## About
 
