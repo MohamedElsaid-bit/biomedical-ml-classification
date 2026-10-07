@@ -1,0 +1,7 @@
+{
+  "k_features": 500,
+  "random_state": 42,
+  "n_genes_after_variance_filter": 20264,
+  "n_train": 640,
+  "n_test": 161
+}
