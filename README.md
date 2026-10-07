@@ -153,6 +153,14 @@ Logistic Regression and SVM tied for best test performance. Random Forest was sl
 
 ---
 
+## Biological Interpretation
+
+The Random Forest feature importances (`results/figures/feature_importance_rf.png`) rank `worst radius`, `worst perimeter`, and `worst concave points` among the top predictors of malignancy. All three summarize the size and shape of the largest, most irregular nuclei in a sample rather than an average across all cells, which lines up with established cytopathology practice: malignant breast lesions are graded in part on nuclear pleomorphism (enlarged, irregularly shaped nuclei) and on the presence of a worst case subpopulation of atypical cells, not just the mean appearance of a sample. That the model converges on the same features a pathologist is trained to look for is a useful sanity check that it has learned something biologically grounded rather than an artifact of the data, though it is not proof of a causal relationship (see Limitations: Gini importance reflects predictive utility, not biological causality).
+
+This interpretation is read off the model's own output plus general cytopathology background, not from any new wet lab or imaging validation of which specific cells drove the worst case measurements.
+
+---
+
 ## Skills Demonstrated
 
 | Category | Tools / Concepts |
