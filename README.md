@@ -8,7 +8,11 @@ A supervised machine learning pipeline for biomedical classification, in two par
 
 ---
 
-## Why This Project
+## Technologies used
+
+Python, pandas, scikit-learn (Logistic Regression, Random Forest, SVM), matplotlib, Jupyter (Part 1); the same stack plus univariate feature selection (`SelectKBest`, ANOVA F-test) for the higher dimensional data in Part 2.
+
+## Biological background
 
 Biomedical classification problems require careful validation: false positives and false negatives both carry real costs. This project demonstrates a reproducible, leakage-free ML workflow, from data loading through model comparison using techniques common in bioinformatics and scientific data engineering roles.
 
@@ -26,7 +30,7 @@ Part 1 (below) uses a 569 sample, 30 feature tutorial dataset with no external d
 | **Source** | `sklearn.datasets.load_breast_cancer` |
 | **Samples** | 569 |
 | **Features** | 30 numeric cytology measurements |
-| **Target** | Binary — 0 = malignant, 1 = benign |
+| **Target** | Binary (0 = malignant, 1 = benign) |
 | **Class balance** | 37.3% malignant / 62.7% benign |
 
 Features describe cell nucleus properties (radius, texture, perimeter, area, smoothness, etc.) derived from digitized fine needle aspirate images.
@@ -80,7 +84,7 @@ biomedical-ml-classification/
 | Random Forest | Ensemble method; provides Gini feature importances |
 | SVM (RBF kernel) | Strong on high-dimensional data; scaled via Pipeline |
 
-All models use default or simple hyperparameters (no tuning — see Limitations).
+All models use default or simple hyperparameters (no tuning, see Limitations).
 
 ### How to Run (Part 1)
 
@@ -132,7 +136,7 @@ This interpretation is read off the model's own output plus general cytopatholog
 
 ### Reproducibility (Part 1)
 
-- **Built-in dataset:** Data comes from `sklearn.datasets.load_breast_cancer` — no external download, API key, or manual file placement required.
+- **Built-in dataset:** Data comes from `sklearn.datasets.load_breast_cancer`: no external download, API key, or manual file placement required.
 - **Runs out of the box:** `pip install -r requirements.txt` followed by the three pipeline scripts is enough to reproduce all results.
 - **No data leakage:** `StandardScaler` is never fit on the full dataset. It lives inside sklearn `Pipeline` objects and is fit only on training folds during cross-validation and on the training split for the final model.
 - **Pinned dependencies:** Package versions in `requirements.txt` match the environment used to generate the committed example outputs.
@@ -149,11 +153,11 @@ This interpretation is read off the model's own output plus general cytopatholog
 
 ### Future Improvements (Part 1)
 
-- [ ] Add `RandomizedSearchCV` for hyperparameter optimization
-- [ ] Implement SHAP values for model explainability
-- [ ] Add SMOTE or class-weight balancing
-- [ ] Explore XGBoost or LightGBM as additional baselines
-- [ ] Validate on an independent external cohort
+- Add `RandomizedSearchCV` for hyperparameter optimization
+- Implement SHAP values for model explainability
+- Add SMOTE or class-weight balancing
+- Explore XGBoost or LightGBM as additional baselines
+- Validate on an independent external cohort
 
 ---
 
@@ -246,11 +250,11 @@ Logistic Regression and the linear SVM tied for best (161 of 161 test accuracy w
 
 ### Future Improvements (Part 2)
 
-- [ ] Map the anonymized `gene_XXXX` IDs back to real gene symbols via the original TCGA/GDC manifest, to make the feature importance results biologically interpretable
-- [ ] Reframe as a harder, more clinically realistic task: molecular subtyping within one cancer type (for example, BRCA luminal A/B/HER2/basal) instead of tissue of origin
-- [ ] Nested cross-validation to tune `k` (the number of ANOVA selected genes) instead of a fixed default
-- [ ] Compare univariate feature selection against an embedded approach (L1 regularized Logistic Regression, or Random Forest importance as the selector)
-- [ ] Add a GitHub Actions CI workflow for this part, mirroring Part 1's
+- Map the anonymized `gene_XXXX` IDs back to real gene symbols via the original TCGA/GDC manifest, to make the feature importance results biologically interpretable
+- Reframe as a harder, more clinically realistic task: molecular subtyping within one cancer type (for example, BRCA luminal A/B/HER2/basal) instead of tissue of origin
+- Nested cross-validation to tune `k` (the number of ANOVA selected genes) instead of a fixed default
+- Compare univariate feature selection against an embedded approach (L1 regularized Logistic Regression, or Random Forest importance as the selector)
+- Add a GitHub Actions CI workflow for this part, mirroring Part 1's
 
 ---
 
@@ -272,8 +276,7 @@ Logistic Regression and the linear SVM tied for best (161 of 161 test accuracy w
 
 ---
 
-## About
+## Contact / links
 
-Built by [Mohamed Elsaid](https://github.com/MohamedElsaid-bit) as part of a bioinformatics portfolio targeting Computational Biology, Bioinformatics, and Scientific Data Engineering roles.
-
-M.S. Bioinformatics, Johns Hopkins University (completed May 2026) | B.S. Biochemistry | Former Associate Scientist, Pfizer / Catalent
+GitHub: [MohamedElsaid-bit](https://github.com/MohamedElsaid-bit)
+Portfolio: [mohamedelsaid-bit.github.io/Portfolio-](https://mohamedelsaid-bit.github.io/Portfolio-/)
